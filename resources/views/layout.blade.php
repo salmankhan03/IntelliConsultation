@@ -292,6 +292,8 @@
         var hash = window.location.hash;
         // console.log(hash);
         $(hash).click();
+
+        console.log('hello world')
     });
 
     $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
