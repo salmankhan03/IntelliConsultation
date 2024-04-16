@@ -255,17 +255,19 @@
     //     window.history.pushState({}, '', newUrl);
     //   });
     // });
-    
+
     // document.addEventListener('DOMContentLoaded', function() {
     //   const toggleBtn = document.getElementById('language-toggle');
 
-    //   toggleBtn.addEventListener('change', function() {
-    //     const newUrl = toggleBtn.checked
-    //       ? updateQueryStringParameter(window.location.href, 'language', 'english')
-    //       : updateQueryStringParameter(window.location.href, 'language', 'chinese');
-    //     // Redirect to the updated URL
-    //     window.location.href = newUrl;
-    //   });
+      toggleBtn.addEventListener('change', function() {
+        // const newUrl = toggleBtn.checked
+        //   ? updateQueryStringParameter(window.location.href, 'language', 'english')
+        //   : updateQueryStringParameter(window.location.href, 'language', 'chinese');
+        // // Redirect to the updated URL
+        // window.location.href = newUrl;
+
+        toggleBtn.checked ? console.log('checked') : console.log('unchecked');
+      });
 
     //   // Function to update query string parameters in the URL
     //   function updateQueryStringParameter(uri, key, value) {
