@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,10 +14,16 @@
 |
 */
 
-use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/',  function (Request $request) {
+
+    if ($request->get('language') == 'chinese'){
+        return view('index-chinise');
+    }
+    else{
+        return view('index');
+    }
+    
 });
 Route::get('/about', function (Request $request) {
 
@@ -24,7 +33,7 @@ Route::get('/about', function (Request $request) {
     else{
         return view('about');
     }
-    
+
 });
 
 //chainese
@@ -37,41 +46,149 @@ Route::get('/webinar_registration_chinese', function () {
 Route::get('/webinar_registration_english', function () {
     return view('Webinar-signup-english');
 });
-Route::get('/canada', function () {
-    return view('canada');
+
+Route::get('/canada', function (Request $request) {
+
+    if ($request->get('language') == 'chinese'){
+        return view('canada-chinise');
+    }
+    else{
+        return view('canada');
+    }
+
 });
-Route::get('/Services-express_entry', function () {
-    return view('Services-express_entry');
+
+Route::get('/Services-express_entry', function (Request $request) {
+
+    if ($request->get('language') == 'chinese'){
+        return view('Services-express_entry-chinise');
+    }
+    else{
+        return view('Services-express_entry');
+    }
+
 });
-Route::get('/Services-LMIA', function () {
-    return view('Services-LMIA');
+
+
+Route::get('/Services-LMIA',function (Request $request) {
+
+    if ($request->get('language') == 'chinese'){
+        return view('Services-LMIA-chinise');
+    }
+    else{
+        return view('Services-LMIA');
+    }
+
 });
-Route::get('/Services-PNP', function () {
-    return view('Services-PNP');
+
+
+Route::get('/Services-PNP', function (Request $request) {
+
+    if ($request->get('language') == 'chinese'){
+        return view('Services-PNP-chinise');
+    }
+    else{
+        return view('Services-PNP');
+    }
+
 });
-Route::get('/Services-startup_visa', function () {
-    return view('Services-startup_visa');
+
+
+Route::get('/Services-startup_visa', function (Request $request) {
+
+    if ($request->get('language') == 'chinese'){
+        return view('Services-startup_visa-chinise');
+    }
+    else{
+        return view('Services-startup_visa');
+    }
+
 });
-Route::get('/Services-workpermit', function () {
-    return view('Services-workpermit');
+
+
+
+Route::get('/Services-workpermit', function (Request $request) {
+
+    if ($request->get('language') == 'chinese'){
+        return view('Services-workpermit-chinise');
+    }
+    else{
+        return view('Services-workpermit');
+    }
+
 });
-Route::get('/Services-studypermit', function () {
-    return view('Services-studypermit');
+
+Route::get('/Services-studypermit', function (Request $request) {
+    
+    if ($request->get('language') == 'chinese'){
+        return view('Services-studypermit-chinise');
+    }
+    else{
+        return view('Services-studypermit');
+        
+    }
+
 });
-Route::get('/Services-visitorvisa', function () {
-    return view('Services-visitorvisa');
+
+Route::get('/Services-visitorvisa', function (Request $request) {
+    
+    if ($request->get('language') == 'chinese'){
+        return view('Services-visitorvisa-chinise');
+    }
+    else{
+        return view('Services-visitorvisa');
+        
+    }
+
 });
-Route::get('/Services-family_sponsor', function () {
-    return view('Services-family_sponsor');
+
+Route::get('/Services-family_sponsor',  function (Request $request) {
+    
+    if ($request->get('language') == 'chinese'){
+        return view('Services-family_sponsor-chinise');
+    }
+    else{
+        return view('Services-family_sponsor');
+    }
+
 });
-Route::get('/Services-caregiver', function () {
-    return view('Services-caregiver');
+
+
+
+Route::get('/Services-caregiver',  function (Request $request) {
+    
+    if ($request->get('language') == 'chinese'){
+        return view('Services-caregiver-chinise');
+    }
+    else{
+        return view('Services-caregiver');
+    }
+
 });
-Route::get('/Services-prcard', function () {
-    return view('Services-prcard');
+
+
+
+Route::get('/Services-prcard',function (Request $request) {
+    
+    if ($request->get('language') == 'chinese'){
+        return view('Services-prcard-chinise');
+    }
+    else{
+        return view('Services-prcard');
+    }
+
 });
-Route::get('/Services-citizenship', function () {
-    return view('Services-citizenship');
+
+Route::get('/Services-citizenship', function (Request $request) {
+    
+    if ($request->get('language') == 'chinese'){
+        return view('Services-citizenship-chinise');
+    }
+    else{
+        return view('Services-citizenship');
+        
+    }
+
 });
 Route::get('/Privacy-policy', function () {
     return view('Privacy-policy');
@@ -85,8 +202,17 @@ Route::post('/News', 'BlogController@getBody');
 Route::get('/News-details/{id}','BlogController@Blog')->name('blog-description');
 Route::get('/News-category/{id}','BlogController@BlogCategory')->name('blog-category');
 
-Route::get('/contactus', function () {
-    return view('contact');
+Route::get('/contactus',function (Request $request) {
+    
+    if ($request->get('language') == 'chinese'){
+        return view('contact-chinise');
+    }
+    else{
+        return view('contact');
+        
+        
+    }
+
 });
 
 Route::post('/contact_mail', 'MailController@contactMail');
