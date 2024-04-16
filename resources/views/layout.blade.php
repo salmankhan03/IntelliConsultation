@@ -257,7 +257,7 @@
     // });
 
     // document.addEventListener('DOMContentLoaded', function() {
-    //   const toggleBtn = document.getElementById('language-toggle');
+      const toggleBtn = document.getElementById('language-toggle');
 
       toggleBtn.addEventListener('change', function() {
         // const newUrl = toggleBtn.checked
