@@ -17,14 +17,14 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/about', function (Request $request) {
-    if ($request->get('language') == 'english'){
-        echo "english";
+
+    if ($request->get('language') == 'chinese'){
+        return view('about-chinise');
     }
     else{
-        echo "chinese";
+        return view('about');
     }
-    die;
-    return view('about');
+    
 });
 
 //chainese
