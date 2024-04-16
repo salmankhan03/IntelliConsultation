@@ -10,10 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/about', function () {
+Route::get('/about', function (Request $request) {
+    if ($request->get('language') == 'english'){
+        echo "english";
+    }
+    else{
+        echo "chinese";
+    }
+    die;
     return view('about');
 });
 
