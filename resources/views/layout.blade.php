@@ -145,6 +145,14 @@
                     <li class="nav-item {{ Request::segment(1) === 'contactus' ? 'active' : null }}">
                         <a class="nav-link" href="{!!url('/contactus')!!}">Contact Us</a>
                     </li>
+                    <li class="nav-item ">
+                        <div class="switch">
+                            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+                            <label for="language-toggle"></label>
+                            <span class="on">A</span>
+                            <span class="off">文</span>
+                        </div>
+                    </li>
 
                 </ul>
                 <!-- </div> -->
