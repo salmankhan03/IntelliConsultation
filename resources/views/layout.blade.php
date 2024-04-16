@@ -260,6 +260,7 @@
       const toggleBtn = document.getElementById('language-toggle');
         // console.log('button');
       toggleBtn.addEventListener('change', function() {
+        console.log(toggleBtn.checked);
         const newUrl = toggleBtn.checked
           ? updateQueryStringParameter(window.location.href, 'language', 'english')
           : updateQueryStringParameter(window.location.href, 'language', 'chinese');
