@@ -266,7 +266,13 @@
         // // Redirect to the updated URL
         // window.location.href = newUrl;
 
-        toggleBtn.checked ? console.log('checked') : console.log('unchecked');
+        if (this.checked){
+            console.log('checked')
+        }
+        else{
+            console.log('unchekced')
+        }
+        
       });
 
     //   // Function to update query string parameters in the URL
