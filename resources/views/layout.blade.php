@@ -258,7 +258,7 @@
 
     // document.addEventListener('DOMContentLoaded', function() {
       const toggleBtn = document.getElementById('language-toggle');
-
+        console.log('button');
       toggleBtn.addEventListener('change', function() {
         // const newUrl = toggleBtn.checked
         //   ? updateQueryStringParameter(window.location.href, 'language', 'english')
