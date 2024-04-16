@@ -264,6 +264,7 @@
           ? updateQueryStringParameter(window.location.href, 'language', 'english')
           : updateQueryStringParameter(window.location.href, 'language', 'chinese');
         // Redirect to the updated URL
+        console.log(newUrl);
         window.location.href = newUrl;
 
 
