@@ -261,6 +261,7 @@
         // console.log('button');
       toggleBtn.addEventListener('change', function() {
         console.log(toggleBtn.checked);
+        console.log('hello')
         const newUrl = toggleBtn.checked
           ? updateQueryStringParameter(window.location.href, 'language', 'english')
           : updateQueryStringParameter(window.location.href, 'language', 'chinese');
