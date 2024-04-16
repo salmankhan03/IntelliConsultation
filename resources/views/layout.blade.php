@@ -293,34 +293,34 @@
         // console.log(hash);
         $(hash).click();
 
-        console.log('hello world')
+     
     });
 
-    $('#language-toggle').on('change',function (e){
+    // $('#language-toggle').on('change',function (e){
 
-        function updateQueryStringParameter(uri, key, value) {
-            const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-            const separator = uri.indexOf('?') !== -1 ? "&" : "?";
-            
-            if (uri.match(re)) {
-                return uri.replace(re, '$1' + key + "=" + value + '$2');
-            } else {
-                return uri + separator + key + "=" + value;
-            }
-        }
+    //     function updateQueryStringParameter(uri, key, value) {
+    //         const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+    //         const separator = uri.indexOf('?') !== -1 ? "&" : "?";
+
+    //         if (uri.match(re)) {
+    //             return uri.replace(re, '$1' + key + "=" + value + '$2');
+    //         } else {
+    //             return uri + separator + key + "=" + value;
+    //         }
+    //     }
         
-        console.log($(this).checked);
-        console.log('hello');
+    //     console.log($(this).checked);
+    //     console.log('hello');
 
-        const newUrl = $(this).checked
-          ? updateQueryStringParameter(window.location.href, 'language', 'english')
-          : updateQueryStringParameter(window.location.href, 'language', 'chinese');
-        // Redirect to the updated URL
+    //     const newUrl = $(this).checked
+    //       ? updateQueryStringParameter(window.location.href, 'language', 'english')
+    //       : updateQueryStringParameter(window.location.href, 'language', 'chinese');
+    //     // Redirect to the updated URL
 
-        console.log(newUrl);
-        window.location.href = newUrl;
+    //     console.log(newUrl);
+    //     window.location.href = newUrl;
         
-    });
+    // });
 
     $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
         if (!$(this).next().hasClass('show')) {
