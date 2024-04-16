@@ -296,6 +296,21 @@
         console.log('hello world')
     });
 
+    $('#language-toggle').on('change',function (e){
+        
+        console.log($(this).checked);
+        console.log('hello');
+
+        const newUrl = $(this).checked
+          ? updateQueryStringParameter(window.location.href, 'language', 'english')
+          : updateQueryStringParameter(window.location.href, 'language', 'chinese');
+        // Redirect to the updated URL
+        
+        console.log(newUrl);
+        window.location.href = newUrl;
+        
+    });
+
     $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
         if (!$(this).next().hasClass('show')) {
             $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
