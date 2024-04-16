@@ -1,0 +1,13 @@
+[16-Feb-2021 23:44:50 UTC] PHP Warning:  require(/home/intellidt2014/public_html/immigration_new/vendor/autoload.php): failed to open stream: No such file or directory in /home/intellidt2014/public_html/immigration_new/artisan on line 18
+[16-Feb-2021 23:44:50 UTC] PHP Fatal error:  require(): Failed opening required '/home/intellidt2014/public_html/immigration_new/vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/intellidt2014/public_html/immigration_new/artisan on line 18
+[16-Feb-2021 23:48:24 UTC] PHP Warning:  require(/home/intellidt2014/public_html/immigration_new/vendor/autoload.php): failed to open stream: No such file or directory in /home/intellidt2014/public_html/immigration_new/artisan on line 18
+[16-Feb-2021 23:48:24 UTC] PHP Fatal error:  require(): Failed opening required '/home/intellidt2014/public_html/immigration_new/vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/intellidt2014/public_html/immigration_new/artisan on line 18
+[17-Feb-2021 05:18:31 UTC] PHP Warning:  require(/home/intellidt2014/public_html/immigration_new/vendor/autoload.php): failed to open stream: No such file or directory in /home/intellidt2014/public_html/immigration_new/artisan on line 18
+[17-Feb-2021 05:18:31 UTC] PHP Fatal error:  require(): Failed opening required '/home/intellidt2014/public_html/immigration_new/vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/intellidt2014/public_html/immigration_new/artisan on line 18
+[19-Feb-2021 12:10:02 UTC] PHP Fatal error:  Uncaught Symfony\Component\Console\Exception\RuntimeException: Unable to write output. in phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/StreamOutput.php:79
+Stack trace:
+#0 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/Output.php(164): Symfony\Component\Console\Output\StreamOutput->doWrite('\n', true)
+#1 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/Output.php(132): Symfony\Component\Console\Output\Output->write(Array, true, 16)
+#2 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Application.php(641): Symfony\Component\Console\Output\Output->writeln('', 16)
+#3 phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Application.php(127): Symfony\Component\Console\Application->renderException(Object(Composer\Downloader\TransportException), Object(Symfony\Component\Console\Output\StreamOutput))
+#4 phar:///opt/cpanel/composer/bin/composer/src/Composer/Console/Application.php(104): Symfony\Component\Console\Application in phar:///opt/cpanel/composer/bin/composer/vendor/symfony/console/Output/StreamOutput.php on line 79
