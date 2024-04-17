@@ -245,81 +245,58 @@
 <script src="{{ asset('libs/animate/wow.min.js').'?ver='.base64_encode(\Carbon\Carbon::now()->format("Y-m-d")) }}"></script>
 <script src="{{ asset('libs/animate/jquery.shuffleLetters.js').'?ver='.base64_encode(\Carbon\Carbon::now()->format("Y-m-d")) }}"></script>
 <script src="{{ asset('libs/animate/jquery.scrollme.min.js').'?ver='.base64_encode(\Carbon\Carbon::now()->format("Y-m-d")) }}"></script>
+
 <script>
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   const toggleBtn = document.getElementById('language-toggle');
+    $(document).ready(function() {
+    const toggleBtn = $('#language-toggle');
 
-    //   toggleBtn.addEventListener('change', function() {
-    //     const newUrl = toggleBtn.checked ? '/chinese-page' : '/english-page';
-    //     // Update the URL based on the toggle state
-    //     window.history.pushState({}, '', newUrl);
-    //   });
-    // });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleBtn = document.getElementById('language-toggle');
-        // console.log('button');
-      toggleBtn.addEventListener('change', function() {
-        console.log(toggleBtn.checked);
-        console.log('hello')
-        const newUrl = toggleBtn.checked
-          ? updateQueryStringParameter(window.location.href, 'language', 'english')
-          : updateQueryStringParameter(window.location.href, 'language', 'chinese');
-        // Redirect to the updated URL
-        console.log(newUrl);
-        window.location.href = newUrl;
-
-
-        
-      });
-
-      // Function to update query string parameters in the URL
-      function updateQueryStringParameter(uri, key, value) {
+    // Function to update query string parameters in the URL
+    function updateQueryStringParameter(uri, key, value) {
         const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
         const separator = uri.indexOf('?') !== -1 ? "&" : "?";
         if (uri.match(re)) {
-          return uri.replace(re, '$1' + key + "=" + value + '$2');
+            return uri.replace(re, '$1' + key + "=" + value + '$2');
         } else {
-          return uri + separator + key + "=" + value;
+            return uri + separator + key + "=" + value;
         }
-      }
-    });
-  </script>
+    }
 
+    // Update toggle button state based on URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('language');
+    if (langParam === 'english') {
+        toggleBtn.prop('checked',false );
+    } else if (langParam === 'chinese') {
+        toggleBtn.prop('checked', true);
+    }
+
+    // Listen for toggle button change
+    toggleBtn.on('change', function() {
+        // const language = toggleBtn.is(':checked') ? 'english' : 'chinese';
+        const language = toggleBtn.is(':checked') ? 'chinese' : 'english';
+
+        const baseUrl = window.location.origin + window.location.pathname;
+        const newUrl = updateQueryStringParameter(baseUrl, 'language', language);
+        // Update URL without reloading the page
+        history.pushState({}, '', newUrl);
+        window.location.href = newUrl;
+        // Update page content based on language selection
+        
+    });
+
+
+        });
+
+
+
+    </script>
+    
 <script type="text/javascript">
     $(document).ready(function () {
         // get the #section from the URL
         var hash = window.location.hash;
         // console.log(hash);
         $(hash).click();
-
-     
-    });
-
-    $('#language-toggle').on('change',function (e){
-
-        function updateQueryStringParameter(uri, key, value) {
-            const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-            const separator = uri.indexOf('?') !== -1 ? "&" : "?";
-
-            if (uri.match(re)) {
-                return uri.replace(re, '$1' + key + "=" + value + '$2');
-            } else {
-                return uri + separator + key + "=" + value;
-            }
-        }
-        
-        console.log($(this).checked);
-        console.log('hello');
-
-        const newUrl = $(this).checked
-          ? updateQueryStringParameter(window.location.href, 'language', 'english')
-          : updateQueryStringParameter(window.location.href, 'language', 'chinese');
-        // Redirect to the updated URL
-
-        console.log(newUrl);
-        window.location.href = newUrl;
-        
     });
 
     $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
