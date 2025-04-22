@@ -153,115 +153,113 @@
                             </div>
                         @endif
                         <div class="form">
-                            {!! Form::open(['url' => '/save-webinar-data','method'=>"POST"]) !!}
-                            <div class="row">
-                                <div class="col-md-6 mt-20">
-                                    {!! Form::text('lname', null, array('placeholder'=>'姓氏*')) !!}
-                                    @error('lname')
-                                    <div class="alert alert-danger">{{ $errors->first('lname')}}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6 mt-20">
-                                    {!! Form::text('fname', null, array('placeholder'=>'名字*')) !!}
-                                    @error('fname')
-                                    <div class="alert alert-danger">{{ $errors->first('fname')}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row font-weight-light">
-                                <div class="col-md-6 mt-20">
-                                    {!! Form::text('email', null, array('placeholder'=>'電子郵箱*')) !!}
-                                    @error('email')
-                                    <div class="alert alert-danger">{{ $errors->first('email')}}</div>
-                                    @enderror
-                                </div>
-                                 <div class="col-md-6 mt-20">
-                                    {!! Form::text('phone', null, array('placeholder'=>'電話*')) !!}
-                                    @error('phone')
-                                    <div class="alert alert-danger">{{ $errors->first('phone')}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6 mt-20">
-                                    {!! Form::text('country', null, array('placeholder'=>'國籍*')) !!}
-                                    @error('country')
-                                    <div class="alert alert-danger">{{ $errors->first('country')}}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6 mt-20">
-                                    {!! Form::text('city', null, array('placeholder'=>'現居城市*')) !!}
-                                    @error('city')
-                                    <div class="alert alert-danger">{{ $errors->first('city')}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mt-20 font-weight-light">
-                                <div class="col-md-12 font-weight-bold">
-                                    您是從什麼途徑得知此次活動?*
-                                </div>
-                                <div class="col-xl-2 col-lg-12" style="padding: 15px;">
-                                    {!! Form::radio('referer', 'Facebook', true, ['onchange' => 'changeReferralWebinar()']); !!} Facebook
-                                </div>
-                                <div class="col-xl-2 col-lg-12" style="padding: 15px;">
-                                    {!! Form::radio('referer', 'Search Engine', false, ['onchange' => 'changeReferralWebinar()']); !!} 搜索引擎
-                                </div>
-                                <div class="col-xl-8 col-lg-12">
-                                    {!! Form::radio('referer', 'Referral',false, ['onchange' => 'changeReferralWebinar()']); !!} 親友推薦 &nbsp;&nbsp;
-                                    {!! Form::text('referer_name', null, array('placeholder'=>'親友名字','style'=>'width:auto','id' => 'referer_name')) !!}
-                                </div>
-
-                                <div class="col-md-12">
-                                    @error('referer')
-                                    <div class="alert alert-danger">{{ $errors->first('referer')}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            
-                            <div class="row font-weight-light  mt-20">
-                                <div class="col-md-4 font-weight-bold">
-                                    您想了解更多以下哪一個類別的資訊？
-                                </div>
-                               <div class="col-md-3">
-                                  
+                            <form action="/save-webinar-data" method="POST">
                                 
-                                    <select style="width: 100%; height: 50px; border: 1px solid #dbdbdb; background-color: rgb(242, 242, 242);">
-                                        <option>移民方案</option>
-                                        <option>留學規劃</option>
-                                        <option>商業發展</option>
-                                        <option>就業前景</option>
-                                        <option>加拿大風土民情</option>
-                                    </select>
+                                <div class="row">
+                                    <div class="col-md-6 mt-20">
+                                        <input type="text" name="lname" value="{{ old('lname') }}" placeholder="姓氏*">
+                                        @error('lname')
+                                        <div class="alert alert-danger">{{ $errors->first('lname')}}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6 mt-20">
+                                        <input type="text" name="fname" value="{{ old('fname') }}" placeholder="名字*">
+                                        @error('fname')
+                                        <div class="alert alert-danger">{{ $errors->first('fname')}}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="row font-weight-light">
+                                    <div class="col-md-6 mt-20">
+                                        <input type="text" name="email" value="{{ old('email') }}" placeholder="電子郵箱*">
+                                        @error('email')
+                                        <div class="alert alert-danger">{{ $errors->first('email')}}</div>
+                                        @enderror
+                                    </div>
+                                     <div class="col-md-6 mt-20">
+                                        <input type="text" name="phone" value="{{ old('phone') }}" placeholder="電話*">
+                                        @error('phone')
+                                        <div class="alert alert-danger">{{ $errors->first('phone')}}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mt-20">
+                                        <input type="text" name="country" value="{{ old('country') }}" placeholder="國籍*">
+                                        @error('country')
+                                        <div class="alert alert-danger">{{ $errors->first('country')}}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6 mt-20">
+                                        <input type="text" name="city" value="{{ old('city') }}" placeholder="現居城市*">
+                                        @error('city')
+                                        <div class="alert alert-danger">{{ $errors->first('city')}}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mt-20 font-weight-light">
+                                    <div class="col-md-12 font-weight-bold">
+                                        您是從什麼途徑得知此次活動?*
+                                    </div>
+                                    <div class="col-xl-2 col-lg-12" style="padding: 15px;">
+                                        <input type="radio" name="referer" value="Facebook" {{ old('referer') == 'Facebook' ? 'checked' : '' }} onchange="changeReferralWebinar()"> Facebook
+                                    </div>
+                                    <div class="col-xl-2 col-lg-12" style="padding: 15px;">
+                                        <input type="radio" name="referer" value="Search Engine" {{ old('referer') == 'Search Engine' ? 'checked' : '' }} onchange="changeReferralWebinar()"> 搜索引擎
+                                    </div>
+                                    <div class="col-xl-8 col-lg-12">
+                                        <input type="radio" name="referer" value="Referral" {{ old('referer') == 'Referral' ? 'checked' : '' }} onchange="changeReferralWebinar()"> 親友推薦 &nbsp;&nbsp;
+                                        <input type="text" name="referer_name" value="{{ old('referer_name') }}" placeholder="親友名字" style="width:auto" id="referer_name">
+                                    </div>
 
-                            <div class="row mt-20">
-                                <div class="col-md-12">
-                                    {!! Form::textarea('message', null, array('placeholder'=>'您有什麼問題想演講嘉賓在會議中為您解答？','rows' => 5, 'cols' => 80)) !!}
+                                    <div class="col-md-12">
+                                        @error('referer')
+                                        <div class="alert alert-danger">{{ $errors->first('referer')}}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="row font-weight-light  mt-20">
+                                    <div class="col-md-4 font-weight-bold">
+                                        您想了解更多以下哪一個類別的資訊？
+                                    </div>
+                                   <div class="col-md-3">
+                                        <select name="info_category" style="width: 100%; height: 50px; border: 1px solid #dbdbdb; background-color: rgb(242, 242, 242);">
+                                            <option value="移民方案" {{ old('info_category') == '移民方案' ? 'selected' : '' }}>移民方案</option>
+                                            <option value="留學規劃" {{ old('info_category') == '留學規劃' ? 'selected' : '' }}>留學規劃</option>
+                                            <option value="商業發展" {{ old('info_category') == '商業發展' ? 'selected' : '' }}>商業發展</option>
+                                            <option value="就業前景" {{ old('info_category') == '就業前景' ? 'selected' : '' }}>就業前景</option>
+                                            <option value="加拿大風土民情" {{ old('info_category') == '加拿大風土民情' ? 'selected' : '' }}>加拿大風土民情</option>
+                                        </select>
+                                    </div>
+                                </div>
 
+                                <div class="row mt-20">
+                                    <div class="col-md-12">
+                                        <textarea name="message" rows="5" cols="80" placeholder="您有什麼問題想演講嘉賓在會議中為您解答？">{{ old('message') }}</textarea>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mt-20 font-weight-light">
-                                <div class="col-md-12 font-weight-bold">
-                                    您想收到由我們公司提供的最新加拿大移民資訊嗎?
+                                <div class="row mt-20 font-weight-light">
+                                    <div class="col-md-12 font-weight-bold">
+                                        您想收到由我們公司提供的最新加拿大移民資訊嗎?
+                                    </div>
+                                    <div class="col-md-6" style="padding: 15px;">
+                                        <input type="radio" name="signup" value="1" {{ old('signup', '1') == '1' ? 'checked' : '' }}> 是
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="signup" value="0" {{ old('signup') == '0' ? 'checked' : '' }}> 否
+                                    </div>
+                                    <div class="col-md-12">
+                                        @error('signup')
+                                        <div class="alert alert-danger">{{ $errors->first('signup')}}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <input type="submit" value="提交">
+                                    </div>
                                 </div>
-                                <div class="col-md-6" style="padding: 15px;">
-                                    {!! Form::radio('signup', 1,true); !!} 是
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    {!! Form::radio('signup', 0, false); !!} 否
-                                </div>
-                                <div class="col-md-12">
-                                    @error('signup')
-                                    <div class="alert alert-danger">{{ $errors->first('signup')}}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    {!! Form::submit('提交') !!}
-                                </div>
-                            </div>
-                            {!! Form::close() !!}
+                            </form>
                         </div>
                     </div>
                 </div>

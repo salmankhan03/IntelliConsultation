@@ -11,10 +11,6 @@ function getCategory()
 
 }
 
-
-
-
-
 function postCat($id){
 
     $categories_array = array();

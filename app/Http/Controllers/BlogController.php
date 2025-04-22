@@ -20,8 +20,9 @@ class BlogController extends Controller
         }
     }
     
-    public function Blog($id){
+    public function Blog(Request $request , $id){
         try{
+            
             $data = BlogPostSeo:: where('postId',$id)->first();
             $data->image = ("uploads/". $data->postBanner);
             $categoryId = BlogPostCategory::where("postID",$data->postID)->first();
@@ -34,6 +35,7 @@ class BlogController extends Controller
                 $l->image = $image;
             }
             return view("blog-detail",compact('data','latest'));
+            
         }catch(\Exception $e){
             return $e->getMessage();
         }

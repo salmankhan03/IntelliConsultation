@@ -12,7 +12,7 @@
      <link rel="canonical" href="https://intelliconsultation.com"/>
     <title>Intelli Consultation</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYGV2P5P1F"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYGV2P5P1F"></script> 
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -30,7 +30,30 @@
     <link href="{{ asset('css/custom.css').'?ver='.base64_encode(\Carbon\Carbon::now()->format("Y-m-d")) }}" rel="stylesheet">
     <link href="{{ asset('css/forum.css').'?ver='.base64_encode(\Carbon\Carbon::now()->format("Y-m-d")) }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css').'?ver='.base64_encode(\Carbon\Carbon::now()->format("Y-m-d")) }}" rel="stylesheet">
+    
+    <?php 
+    
+    if (isset($_SERVER['QUERY_STRING'])) {
 
+        $languageParam = explode("=", $_SERVER['QUERY_STRING']);
+        } else {
+        $languageParam = [];
+        }
+
+        $language = '';
+
+        if (isset($languageParam[1])){
+
+        $language = $languageParam[1];
+
+        }
+
+        else{
+        $language = 'english';
+        }
+    
+    ?>
+    
 </head>
 <body>
 <div class="l-theme">
@@ -42,7 +65,7 @@
     <!-- Header -->
     <header class="header-top-absolute">
         <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
-            <a class="navbar-brand  d-flex" href="{{ url('/') }}">
+            <a class="navbar-brand  d-flex" href="{{ url('/') .'?'. http_build_query(['language' => $language]) }}">
                 <img src="{{asset('images/logo.png')}}" alt="Logo">
             </a>
             <div class="d-flex ">
@@ -53,19 +76,21 @@
                 </button>
 
                 <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+
+
                 <ul class="nav">
                     <li class="close-nav"><i class="fas fa-times"></i></li>
                     <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
-                        <a class="nav-link " href="{!!url('/')!!}">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link " href="{{ url('/') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Home' : '主頁' }}<span class="sr-only">(current)</span></a>
                     </li>
 {{--                    <li class="nav-item {{ Request::segment(1) === 'webinar_registration' ? 'active' : null }}">--}}
-{{--                        <a class="nav-link " href="{!!url('/webinar_registration')!!}">Webinar Registration</a>--}}
+{{--                        <a class="nav-link " href="{{ url('/webinar_registration') .'?'. http_build_query(['language' => $language]) }}">Webinar Registration</a>--}}
 {{--                    </li>--}}
                     <li class="nav-item {{ Request::segment(1) === 'about' ? 'active' : null }}">
-                        <a class="nav-link " href="{!!url('/about')!!}">About Us</a>
+                        <a class="nav-link " href="{{ url('/about') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'About Us' : '關於我們' }}</a>
                     </li>
                     <li class="nav-item {{ Request::segment(1) === 'canada' ? 'active' : null }}">
-                        <a class="nav-link" href="{!!url('/canada')!!}">About Canada</a>
+                        <a class="nav-link" href="{{ url('/canada') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'About Canada' : '關於加拿大' }}</a>
                     </li>
                     <li class="nav-item dropdown {{(Request::segment(1) === 'Services-express_entry'
                                                         ? 'active' : Request::segment(1) === 'Services-LMIA') ? 'active' : null }}
@@ -79,43 +104,43 @@
                         ? 'active' : Request::segment(1) === 'Services-prcard') ? 'active' : null }}
                     {{ Request::segment(1) === 'Services-citizenship' ? 'active' : null }}">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Our Services</a>
+                           aria-haspopup="true" aria-expanded="false">{{ ( $language == 'english' || $language == '' ) ? 'Our Services' : '服務範圍' }}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-express_entry')!!}">Express Entry</a>
+                                <a class="dropdown-item" href="{{ url('/Services-express_entry') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Express Entry' : '快速入境' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-LMIA')!!}">LMIA</a>
+                                <a class="dropdown-item" href="{{ url('/Services-LMIA') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'LMIA' : 'LMIA（勞動力市場評估）' }}</a>
                             </li>
 
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-family_sponsor')!!}">Family
-                                    Sponsorship</a>
+                                <a class="dropdown-item" href="{{ url('/Services-family_sponsor') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Family
+                                    Sponsorship' : '家庭團聚移民' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-startup_visa')!!}">Start Up Visa</a>
+                                <a class="dropdown-item" href="{{ url('/Services-startup_visa') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Start Up Visa' : '創業移民' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-PNP')!!}">PNP</a>
+                                <a class="dropdown-item" href="{{ url('/Services-PNP') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'PNP' : '省提名移民' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-caregiver')!!}">Caregiver</a>
+                                <a class="dropdown-item" href="{{ url('/Services-caregiver') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Caregiver' : '護理人員移民' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-workpermit')!!}">Work Permit</a>
+                                <a class="dropdown-item" href="{{ url('/Services-workpermit') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Work Permit' : '工作許可' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-studypermit')!!}">Study Permit</a>
+                                <a class="dropdown-item" href="{{ url('/Services-studypermit') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Study Permit' : '留學簽證' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-visitorvisa')!!}">Visitor Visa</a>
+                                <a class="dropdown-item" href="{{ url('/Services-visitorvisa') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Visitor Visa' : '旅遊簽證' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-prcard')!!}">PR Card</a>
+                                <a class="dropdown-item" href="{{ url('/Services-prcard') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'PR Card' : '公關申請' }}</a>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/Services-citizenship')!!}">Citizenship
-                                    Application</a>
+                                <a class="dropdown-item" href="{{ url('/Services-citizenship') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Citizenship
+                                    Application' : '入籍申請' }}</a>
                             </li>
                         </ul>
                     </li>
@@ -124,26 +149,29 @@
                     {{--                        </li>--}}
                     <li class="nav-item dropdown {{ Request::segment(1) === 'News' ? 'active' : null }}">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">News</a>
+                           aria-haspopup="true" aria-expanded="false">{{ ( $language == 'english' || $language == '' ) ? 'News' : '最新消息' }}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="{!!url('/News')!!}">All News</a>
+                                <a class="dropdown-item" href="{{ url('/News') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'All News' : '所有新聞' }}</a>
                             </li>
+                            
                             <?php
-                            $cats = getCategory();
+                                $cats = \App\Models\BlogCategories::all();
                             ?>
-                            @foreach ($cats as $c)
-
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item"
-                                       href="{!!url('/News-category/'.$c->catID)!!}">{!! $c->catTitle !!}</a>
-                                </li>
-                            @endforeach
+                            
+                                @foreach ($cats as $c)
+    
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item"
+                                           href="{{ url('/News-category/'.$c->catID) .'?'. http_build_query(['language' => $language]) }}">{!! $c->catTitle !!}</a>
+                                    </li>
+                                    
+                                @endforeach
 
                         </ul>
                     </li>
                     <li class="nav-item {{ Request::segment(1) === 'contactus' ? 'active' : null }}">
-                        <a class="nav-link" href="{!!url('/contactus')!!}">Contact Us</a>
+                        <a class="nav-link" href="{{ url('/contactus') .'?'. http_build_query(['language' => $language]) }}">{{ ( $language == 'english' || $language == '' ) ? 'Contact Us' : '聯絡我們' }}</a>
                     </li>
                     <li class="nav-item ">
                         <div class="switch">
@@ -173,15 +201,28 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="text-block-section d-flex align-items-center">
-                            <h5>Book a free consultation with us. We will help make the process quicker, more efficient,
-                                and
-                                stress-free for you.
-                            </h5>
+                  
+                            @if ( $language == 'english' || $language == '')
+                                <h5>Book a free consultation with us. We will help make the process quicker, more efficient,
+                                    and
+                                    stress-free for you.
+                                </h5>
+                             @else
+                                 <h5>與我們預約免費諮詢。我們將幫助您更快、更高效、更輕鬆地完成整個過程
+                                </h5>
+                             @endif
+                            
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="text-block-section d-flex align-items-center">
-                            <a href="{!!url('/contactus')!!}" class="contact-link mt-20">Free Consultation</a>
+                            <a href="{{ url('/contactus') .'?'. http_build_query(['language' => $language]) }}" class="contact-link"> 
+                            @if ( $language == 'english' || $language == '')
+                                Free Consultation
+                            @else
+                                免費諮詢
+                            @endif
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -193,7 +234,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h5 class="footer-head">Call us: +1 (778) 297-7108</h5>
+                        <h5 class="footer-head">
+                            @if ( $language == 'english' || $language == '')
+                                Call us: +1 (778) 297-7108
+                            @else
+                                聯繫我們: +1 (778) 297-7108
+                                
+                            @endif
+                            
+                        </h5>
                         <p class="footer-company">Intelli Management Consulting Corp.</p>
                         <p class="footer-address">200-3071 No 5 Road, Richmond, BC, V6X 2T4 Canada
                         </p>
@@ -201,10 +250,10 @@
                     <div class="col-md-5">
                             <ul class="footer-nav">
                                 <li>
-                                    <a href="{!!url('/Privacy-policy')!!}" class="">Privacy Policy</a>
+                                    <a href="{{ url('/Privacy-policy') .'?'. http_build_query(['language' => $language]) }}" class="">{{ ( $language == 'english' || $language == '' ) ? 'Privacy Policy' : '隐私条款' }}</a>
                                 </li>
                                 <li>
-                                    <a href="{!!url('/Terms-and-conditions')!!}" class="">Terms and Condition</a>
+                                    <a href="{{ url('/Terms-and-conditions') .'?'. http_build_query(['language' => $language]) }}" class="">{{ ( $language == 'english' || $language == '' ) ? 'Terms and Condition' : '附带条约' }}</a>
                                 </li>
                             </ul>
                         </nav>

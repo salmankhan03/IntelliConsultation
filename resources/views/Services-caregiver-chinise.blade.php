@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="title-text">
                     <!--<h5>Options available for Permanent Residence in Canada</h5>-->
-                    <h2>護理人員移民</h2>
+                    <h2> 護理人員移民</h2>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                                 </div>
                                 <h4 class="par-head-h4">限制：</h4>
                                 <p class="par-p">
-                                每年僅處理 5,500 份申請（2,750 份家庭托兒所提供者試點申請；2,750 份家庭支持工作者試點申請）
+                                每年僅處理 5,500 份申請（2,750 份家庭托兒所提供者試點申請；2,750 份家庭支持工作者試點申請
                                 </p>
                                 <h4 class="par-head-h4">時間：</h4>
                                 <p class="par-p">
@@ -43,7 +43,7 @@
                                 <h4 class="par-head-h4">優勢/結果：</h4>
                                 <div class="par-list">
                                     <ul class="list-left">
-                                        <li>如果沒有合格的工作經驗，只要符合其他資格要求，申請人可以通過家庭托兒所提供者試點專案或家庭支持工作者試點專案申請永久居留權（PR）。</li>
+                                        <li>如果沒有合格的工作經驗，只要符合其他資格要求，申請人可以通過家庭托兒所提供者試點專案或家庭支持工作者試點專案申請永久居留權（PR）</li>
                                         <li>家庭成員有資格與申請人同行，並可獲得工作或學習許可</li>
                                         <li>享受全民醫療保健</li>
                                     </ul>

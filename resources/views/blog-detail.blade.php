@@ -1,6 +1,24 @@
 @extends('layout')
 @section('content')
 
+<?php 
+
+function postCat($id){
+
+    $categories_array = array();
+    $post_category = \App\Models\BlogPostCategory::selectRaw("catID")->where("postID",$id)->get();
+    if(count($post_category) > 0){
+        foreach ($post_category as $b){
+            $cat = \App\Models\BlogCategories::where('catID',$b->catID)->first();
+            $categories_array[$cat->catID] = $cat->catTitle;
+        }
+    }
+    return $categories_array;
+
+}
+
+?>
+
 <section class="blog-back">
            <div class="banner-back">
            </div>

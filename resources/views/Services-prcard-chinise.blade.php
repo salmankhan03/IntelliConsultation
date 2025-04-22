@@ -32,7 +32,7 @@
                                 <li>未被定罪</li>
                             </ul>
                         </div>
-                        <h4 class="par-head-h4">永久居民的好處:</h4>
+                        <h4 class="par-head-h4">永久居民的好處</h4>
                         <div class="par-list">
                             <ul class="list-left">
                                 <li>可在加拿大任何地方生活和工作</li>

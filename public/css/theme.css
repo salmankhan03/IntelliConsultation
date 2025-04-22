@@ -494,7 +494,7 @@ a.dropdown-item {
     color: #ffffff;
     font-size: 32px;
     line-height: 42px;
-    text-align: right;
+    text-align: left;
     font-weight: 100;
     margin-top: 20px;
 }
@@ -1269,7 +1269,7 @@ html .section-head h2 {
     color: #ffffff;
     font-size: 28px;
     line-height: 42px;
-    text-align: right;
+    text-align: left;
     margin-bottom: 50px;
     font-weight: 100;
 }

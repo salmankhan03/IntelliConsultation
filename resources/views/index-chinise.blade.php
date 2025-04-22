@@ -1,6 +1,23 @@
 @extends('layout')
 @section('content')
-
+    <?php 
+    
+        $languageParam = explode("=" , $_SERVER['QUERY_STRING']);
+        
+        $language = '';
+        
+        if (isset($languageParam[1])){
+            
+            $language = $languageParam[1];
+            
+        }
+        
+        else{
+            $language = 'english';
+        }
+    
+    ?>
+    
          <!-- Slider main -->
          <section class="slider">
     <div class="b-main-slider slider-pro" id="main-slider" data-slider-width="100%" data-slider-height="650px" data-slider-arrows="true" data-slider-buttons="false">
@@ -65,8 +82,8 @@
                <div class="box-span d-flex box-shadow">
                   <div class="box-icon-1"><img src="images/home/icon_book.png" alt=""></div>
                   <div class="box-text">
-                     <a href="<?php echo URL('/contactus') ?>"><div class="box-text-second">預約</div></a>
-                      <div class="box-text-first">立即預約與我們專業顧問團隊交談”</div>                 
+                     <a href="{{ url('/contactus') .'?'. http_build_query(['language' => $language]) }}"><div class="box-text-second">預約</div></a>
+                      <div class="box-text-first">現在就預約，與我們親切的專業顧問團隊交談</div>                 
                       <!-- <a href="<?php echo URL('/contactus') ?>"><div class="box-text-second">Appointment</div></a>
                       <div class="box-text-first">Book your appointment now and talk to our team of friendly professional consultants</div> -->
                   </div>
@@ -74,8 +91,8 @@
                <div class="box-span d-flex box-shadow">
                   <div class="box-icon-1"><img src="images/home/icon_consultation.png" alt=""></div>
                   <div class="box-text-2">
-                     <a href="#section-11"><div class="box-text-second">諮詢</div></a>
-                      <div class="box-text-first">告訴我們您的情況，我們將為您量身定制適合您的移民計畫的解決方案”</div>
+                     <a href="#section-11"><div class="box-text-second">諮詢服務</div></a>
+                      <div class="box-text-first">因應您的個別情況，我們將為您量身定制適合您移民計劃的解決方案</div>
 <!-- 
                       <a href="#section-11"><div class="box-text-second">Consultation</div></a>
                       <div class="box-text-first">Tell us your situation and we will tailor a solution suited just for your immigration plans</div> -->
@@ -85,7 +102,7 @@
             <div class="box-2 d-flex">
                <div class="d-flex box-2-span align-items-center">
                   <div class="box-text-right">
-                      Solutions Based on Your Assessment Results and Needs
+                      根據您的評估結果和需求提供解決方案
 {{--                      <p class="">--}}
 {{--                          免費講座--}}
 {{--                          <br/>加拿大移民須知線上分享會<br/>--}}
@@ -103,7 +120,7 @@
                <div class="row">
                   <div class="col-lg-3 col-md-12 col-sm-12">
                       <div class="box-1">
-                          <h3>我們根據您的情況提供一系列諮詢服務。</h3>
+                          <h3>我們依據您的情況提供多元化的諮詢服務。</h3>
                           <!-- <h3>We offer an array of consultation services depending on your situation.</h3> -->
 
                       </div>
@@ -114,13 +131,13 @@
                          <div>
                              <img src="{{asset('images/icons_service/icon_permanent.png')}}" alt="service">
                              <div class="features">
-                             <h4>學習許可證</h4>
-                             <p>渴望在全球最佳教育系統之一中學習嗎？選擇加拿大，體驗世界一流的教育。</p>
+                             <h4>學生簽證</h4>
+                             <p>想要在全球最優秀的教育系統之一學習嗎？選擇加拿大，體驗世界一流的教育。</p>
                              <!-- <h4>Study Permit For Students</h4>
                              <p>Want to study in one of the best education systems in the world?
                                  Studying in Canada can be a great way to gain world class education.</p> -->
                              </div>
-                             <a href="{{ URL('/Services-studypermit') }}">Read More</a>
+                             <a href="{{ url('/Services-studypermit') .'?'. http_build_query(['language' => $language]) }}">更多</a>
                          </div>
 
                      </div>
@@ -130,10 +147,10 @@
                          <img src="{{asset('images/icons_service/icon_visa.png')}}" alt="service">
                          <div class="features">
 
-                         <h4>Express Entry For Professionals</h4>
-                         <p>By utilizing your abilities, skills, and education, you can obtain your Permanent Residency sooner. Contact us for a risk free consultation.</p>
+                         <h4>專業人士快速通道</h4>
+                         <p>利用您的能力、技能和教育背景，您可以更快地獲得永久居留權。請聯繫我們進行免費風險評估。</p>
                          </div>
-                         <a href="{{ URL('/Services-express_entry') }}">Read More</a>
+                         <a href="{{ url('/Services-express_entry') .'?'. http_build_query(['language' => $language]) }}">更多</a>
                      </div>
                   </div>
                   <div class="col-lg-3 col-md-12 col-sm-12">
@@ -142,14 +159,14 @@
                          <div class="features">
                             <h4>省提名計畫 (PNP)</h4>
                              <p>
-                                想要把您的業務搬到加拿大嗎？我們將協助您輕鬆應對所有手續，提供正確的商業智慧，讓您移民之路無憂無慮”
+                                想把您的業務遷移到加拿大嗎？我們將協助您輕鬆應對所有手續，提供正確的商業智慧，讓您移民之路無憂無慮。
                              </p>
                              <!-- <h4>Provincial Nominee Program (PNP)</h4>
                              <p>
                                  Looking to move your business to Canada? We can help you navigate through all the procedures and help you with the right business acumen.
                              </p> -->
                          </div>
-                         <a href="{{ URL('/Services-PNP') }}">Read More</a>
+                         <a href="{{ url('/Services-PNP') .'?'. http_build_query(['language' => $language]) }}">更多</a>
                      </div>
                   </div>
                </div>
@@ -159,7 +176,7 @@
          <section class="section-4">
             <div class="container">
                <div class="section-head">
-                  <h2>更多計畫方案”</h2>
+                  <h2>更多計畫方案</h2>
                   <!-- <h2>Discover Some More Programs</h2> -->
 
                   <div class="line-2-red"></div>
@@ -169,10 +186,10 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-1"></div>
-                            <a href="{!!url('/Services-workpermit'.'#pgwpp')!!}">
+                            <a href="{{ url('/Services-workpermit') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>碩士學位課程</h5>
-                                <p>獲得碩士學位”</p>
+                                <p>獲得碩士學位</p>
                                 <!-- <h5>Master's Degree Program</h5>
                                 <p>Study, get a master's degree</p> -->
                             </div>
@@ -182,7 +199,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-2"></div>
-                            <a href="{!!url('/Services-prcard')!!}">
+                            <a href="{{ url('/Services-prcard') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>永久居民卡（楓葉卡）</h5>
                                 <p>我們可以協助您申請、更換或更新永久居民卡</p>
@@ -194,7 +211,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-3"></div>
-                            <a href="{!!url('/Services-workpermit')!!}">
+                            <a href="{{ url('/Services-workpermit') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>工作許可證</h5>
                                 <p>告訴我們您的專業知識和工作經驗，我們將協助您找到最適合的選擇</p>
@@ -210,7 +227,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-4"></div>
-                            <a href="{!!url('/Services-caregiver')!!}">
+                            <a href="{{ url('/Services-caregiver') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                             <h5>照顧者計畫</h5>
                                 <p>如果您喜歡照顧他人，這個計畫正是為您而設！透過這個計畫，您不僅可以盡情展現您的愛心，更可獲得永久居留權
@@ -225,10 +242,10 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-5"></div>
-                            <a href="{!!url('/Services-LMIA')!!}">
+                            <a href="{{ url('/Services-LMIA') .'?'. http_build_query(['language' => $language]) }}"">
                             <div class="item-text">
                                 <h5>勞動力市場影響評估移民</h5>
-                                <p>尋求臨時外籍勞工？擁有符合LMIA資格的雇主，即刻滿足您的需求”</p>
+                                <p>尋求臨時外籍勞工？擁有符合LMIA資格的雇主，即刻滿足您的需求</p>
                                 <!-- <h5>LMIA Immigration</h5>
                                 <p>Employers in need of a temporary foreign worker will need a positive LMIA</p> -->
                             </div>
@@ -238,7 +255,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-6"></div>
-                            <a href="{!!url('/Services-citizenship')!!}">
+                            <a href="{{ url('/Services-citizenship') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                             <h5>加拿大公民申請</h5>
                                 <p>您或您的家人是否符合加拿大公民資格？立即瞭解並掌握獲取方法</p>
@@ -270,37 +287,38 @@
                         <h3>免費諮詢和評估</h3>
                         <!-- <h3>Free Consultation and Assessment</h3> -->
                         <div class="line-2-white"></div>
-                        <p>我們會根據您填寫的評估表，判斷您移民的資質”</p>
+                        <p>我們會根據您填寫的評估表，判斷您移民的資質</p>
                         <!-- <p>Fill out our Assessment Form and we’ll review your eligibility for the immigration programs.</p> -->
                         <div class="form">
-                           {!! Form::open(['url' => '/contact_mail','method'=>"POST"]) !!}
+                           <form action="/contact_mail" method="POST">
+                              
                               <div class="row">
                                  <div class="col-md-6">
-                                    {!! Form::text('fname', null, array('placeholder'=>'名')) !!}
+                                    <input type="text" name="fname" value="{{ old('fname') }}" placeholder="名">
                                     @error('fname')
                                     <div class="alert alert-danger">{{ $errors->first('fname')}}</div>
                                     @enderror
                                  </div>
                                   <div class="col-md-6">
-                                      {!! Form::text('lname', null, array('placeholder'=>'姓')) !!}
+                                      <input type="text" name="lname" value="{{ old('lname') }}" placeholder="姓">
                                   </div>
                               </div>
                                <div class="row mt-20">
 
                                  <div class="col-md-4">
-                                    {!! Form::text('email', null, array('placeholder'=>'電郵')) !!}
+                                    <input type="text" name="email" value="{{ old('email') }}" placeholder="電郵">
                                     @error('email')
                                     <div class="alert alert-danger">{{ $errors->first('email')}}</div>
                                     @enderror
                                  </div>
                                  <div class="col-md-4">
-                                    {!! Form::text('number', null, array('placeholder'=>'電話')) !!}
+                                    <input type="text" name="number" value="{{ old('number') }}" placeholder="電話">
                                     @error('number')
                                     <div class="alert alert-danger">{{ $errors->first('number')}}</div>
                                     @enderror
                                  </div>
                                   <div class="col-md-4">
-                                   {!! Form::text('country', null, array('placeholder'=>'現居國家')) !!}
+                                   <input type="text" name="country" value="{{ old('country') }}" placeholder="現居國家">
                                     @error('country')
                                     <div class="alert alert-danger">{{ $errors->first('country')}}</div>
                                     @enderror
@@ -311,15 +329,15 @@
                                  怎麼找到我們
                                  </div>
                                  <div class="col-md-6">
-                                     {!! Form::radio('referer', 'By Referer',false, ['onchange' => 'yourFunction()']); !!}推薦
+                                     <input type="radio" name="referer" value="By Referer" {{ old('referer') == 'By Referer' ? 'checked' : '' }} onchange="yourFunction()">&nbsp;推薦
                                      <div id="referer_name" style="display: none;">
-                                     {!! Form::text('referer_name', null, array('placeholder'=>'Referrer Name')) !!}
+                                     <input type="text" name="referer_name" value="{{ old('referer_name') }}" placeholder="Referrer Name">
                                      </div>
                                  </div>
                                  <div class="col-md-6">
-                                     {!! Form::radio('referer', 'Other', false, ['onchange' => 'yourFunction()']); !!} 其他
+                                     <input type="radio" name="referer" value="Other" {{ old('referer') == 'Other' ? 'checked' : '' }} onchange="yourFunction()"> 其他
                                      <div id="other" style="display: none;">
-                                     {!! Form::text('other', null, array('placeholder'=>'Fill in Here')) !!}
+                                     <input type="text" name="other" value="{{ old('other') }}" placeholder="Fill in Here">
                                      </div>
 
                                  </div>
@@ -332,16 +350,16 @@
 
                             <div class="row mt-20">
                                  <div class="col-md-12">
-                                    {!! Form::textarea('message', null, array('placeholder'=>'我們該怎樣幫助你？ 盡可能具有描述性','rows' => 5, 'cols' => 80)) !!}
+                                    <textarea name="message" placeholder="我們該怎樣幫助你？ 盡可能具有描述性" rows="5" cols="80">{{ old('message') }}</textarea>
                                     <br/>
-                                    {!! Form::submit('提交') !!}
+                                    <button type="submit">提交</button>
                                  </div>
                               </div>
-                              {!! Form::close() !!}                           
+                              </form>                           
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </section>
-@endsection         
+@endsection

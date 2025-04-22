@@ -23,23 +23,24 @@
             <div class="col-lg-9 col-md-12 col-sm-12">
                 <div class="content-wrap practice-single">
                     <div class="content-text">
-                        <h4 class="par-head-h4 mt-0">LMIA 程序是如何运作的</h4>
+                        <h4 class="par-head-h4 mt-0">How does the LMIA process work? LMIA 程式是如何運作的？</h4>
                         <p class="par-p">
-                        如果雇主有意雇用临时外籍工人（TFW）在加拿大工作，则必须向加拿大就业与社会发展部（ESDC）提交劳动力市场影响评估（LMIA）申请。如果雇主收到正面的 LMIA 评估结果，临时外籍工人就可以向加拿大移民难民和公民部（IRCC）申请工作许可
+                            如果雇主有意雇用臨時外籍工人（TFW）在加拿大工作，則必須向加拿大就業與社會發展部（ESDC）提交勞動力市場影響評估（LMIA）申請。如果雇主收到正面的 LMIA 
+                            評估結果，臨時外籍工人就可以向加拿大移民難民和公民部（IRCC）申請工作許可
                         </p>
                         <p class="par-p">
-                        政府会评估雇用 TFW 对加拿大就业市场可能产生的影响。正面的 LMIA 表明确实需要外籍工人来填补所申请的特定工作，而且没有加拿大工人或永久居民可以胜任该工作。
+                        政府會評估雇用 TFW 對加拿大就業市場可能產生的影響。正面的 LMIA 表明確實需要外籍工人來填補所申請的特定工作，而且沒有加拿大工人或永久居民可以勝任該工作。
                         </p>
-                        <h4 class="par-head-h4">如何申请 LMIA？</h4>
+                        <h4 class="par-head-h4"> 如何申請 LMIA？</h4>
                         <p class="par-p">
-                        雇主必须证明多次尝试雇用加拿大公民或永久居民担任预定职位，而且沒有成功並并满足 ESDC/Service Canada 规定的要求，才能向 TFW 提供工作。
+                        雇主必須證明多次嘗試雇用加拿大公民或永久居民擔任預定職位，而且沒有成功並並滿足 ESDC/Service Canada 規定的要求，才能向 TFW 提供工作。
                         </p>
-                        <h4 class="par-head-h4">如何申请 LMIA 以获得快速入境许可</h4>
+                        <h4 class="par-head-h4">如何申請 LMIA 以獲得快速入境許可</h4>
                         <p class="par-p">
-                        一旦雇主收到 LMIA 的肯定答复，具有专业资格的外国技术工人就可以通过快速通道来加拿大工作。
+                        一旦雇主收到 LMIA 的肯定答復，具有專業資格的外國技術工人就可以通過快速通道來加拿大工作。
                         </p>
                         <p class="par-p">
-                        这一过程需要经过多个阶段，因此申请人咨询移民专业人士非常重要。
+                       這一過程需要經過多個階段，因此申請人諮詢移民專業人士非常重要
                         </p>
                     </div>
 

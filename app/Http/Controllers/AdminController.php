@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator; 
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\BlogMembers;
 use App\Models\BlogPostSeo;
 use App\Models\BlogCategories;
 use App\Models\BlogPostCategory;
-use Auth;
-use DataTables;
+use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminController extends Controller
 {
@@ -76,7 +76,7 @@ class AdminController extends Controller
 //                <span class="deleteicn"><a onclick="' . $delete_onclick . '"><i class="fa fa-trash" aria-hidden="true"></i></a></span>' . $publish_button;
 //            }
 //            return view("admin.list",compact('data'));
-        }catch(\ Exception $e){
+        }catch(\Exception $e){
             return $e->getMessage();
         }
     }
@@ -158,7 +158,7 @@ class AdminController extends Controller
                     $blog_cat->save();
                 }
                 return redirect()->route("admin-blog-list");
-        }catch(\ Exception $e){
+        }catch(\Exception $e){
             return $e->getMessage();
         }    
     }
@@ -271,7 +271,7 @@ class AdminController extends Controller
             }
 
             return redirect()->route("admin-blog-list");
-        }catch(\ Exception $e){
+        }catch(\Exception $e){
             return $e->getMessage();
         }  
     }
@@ -314,7 +314,7 @@ class AdminController extends Controller
                 <span class="deleteicn"><a onclick="' . $delete_onclick . '"><i class="fa fa-trash" aria-hidden="true"></i></a></span>' . $publish_button;
             }
             return view("admin.categories",compact('data'));
-        }catch(\ Exception $e){
+        }catch(\Exception $e){
             return $e->getMessage();
         }
     }
@@ -344,7 +344,7 @@ class AdminController extends Controller
             $category->catTitle =$request->input("title");
             $category->save(); 
             return redirect()->route("admin-category-list");
-    }catch(\ Exception $e){
+    }catch(\Exception $e){
         return $e->getMessage();
     }    
     }
@@ -378,7 +378,7 @@ class AdminController extends Controller
             $data->catTitle =$request->input("catTitle");
             $data->save();
             return redirect()->route("admin-category-list");
-        }catch(\ Exception $e){
+        }catch(\Exception $e){
             return $e->getMessage();
         }  
     }
@@ -409,7 +409,7 @@ class AdminController extends Controller
             $data = BlogMembers::all();
            
             return view("admin.users",compact('data'));
-        }catch(\ Exception $e){
+        }catch(\Exception $e){
             return $e->getMessage();
         }
     }

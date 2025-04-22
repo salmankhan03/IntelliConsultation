@@ -13,6 +13,42 @@
                   </div>
                </div>
             </div>
+            
+            <?php 
+    
+                $languageParam = explode("=" , $_SERVER['QUERY_STRING']);
+                
+                $language = '';
+                
+                if (isset($languageParam[1])){
+                    
+                    $language = $languageParam[1];
+                    
+                }
+                
+                else{
+                    $language = 'english';
+                }
+
+                
+
+                function postCat($id){
+
+                    $categories_array = array();
+                    $post_category = \App\Models\BlogPostCategory::selectRaw("catID")->where("postID",$id)->get();
+                    if(count($post_category) > 0){
+                        foreach ($post_category as $b){
+                            $cat = \App\Models\BlogCategories::where('catID',$b->catID)->first();
+                            $categories_array[$cat->catID] = $cat->catTitle;
+                        }
+                    }
+                    return $categories_array;
+
+                }
+
+                
+            
+            ?>
 </section>
 <section class="blog-list">
     <div class="container">
@@ -49,7 +85,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                    <h1 class="section-title mt-2 mb-3 blog-main-title"><a href="{{ URL('/News-details/'.$d->postID )}}" class="section-title-link">{{$d->postTitle}}</a></h1>
+                                    <h1 class="section-title mt-2 mb-3 blog-main-title"><a href="{{ URL('/News-details/'.$d->postID ) .'?'. http_build_query(['language' => $language]) }}" class="section-title-link">{{$d->postTitle}}</a></h1>
                                 <div class="text-left par-p mb-3">{!! $d->postCont !!}</div>
 {{--                                <a href="{{ URL('/News-details/'.$d->postID )}}" class="mt-4 d-block">--}}
 {{--                                    <button type="button" class="register-button">Read More</button>--}}

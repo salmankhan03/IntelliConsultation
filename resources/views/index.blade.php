@@ -1,6 +1,28 @@
 @extends('layout')
 @section('content')
+    <?php   
 
+        if (isset($_SERVER['QUERY_STRING'])) {
+
+            $languageParam = explode("=", $_SERVER['QUERY_STRING']);
+        } else {
+            $languageParam = [];
+        }
+        
+        $language = '';
+        
+        if (isset($languageParam[1])){
+            
+            $language = $languageParam[1];
+            
+        }
+        
+        else{
+            $language = 'english';
+        }
+    
+    ?>
+    
          <!-- Slider main -->
          <section class="slider">
     <div class="b-main-slider slider-pro" id="main-slider" data-slider-width="100%" data-slider-height="650px" data-slider-arrows="true" data-slider-buttons="false">
@@ -57,7 +79,7 @@
                <div class="box-span d-flex box-shadow">
                   <div class="box-icon-1"><img src="images/home/icon_book.png" alt=""></div>
                   <div class="box-text">
-                      <a href="<?php echo URL('/contactus') ?>"><div class="box-text-second">Appointment</div></a>
+                      <a href="{{ url('/contactus') .'?'. http_build_query(['language' => $language]) }}"><div class="box-text-second">Appointment</div></a>
                       <div class="box-text-first">Book your appointment now and talk to our team of friendly professional consultants</div>
                   </div>
                </div>
@@ -105,7 +127,7 @@
                              <p>Want to study in one of the best education systems in the world?
                                  Studying in Canada can be a great way to gain world class education.</p>
                              </div>
-                             <a href="{{ URL('/Services-studypermit') }}">Read More</a>
+                             <a href="{{ url('/Services-studypermit') .'?'. http_build_query(['language' => $language]) }}">Read More</a>
                          </div>
 
                      </div>
@@ -118,7 +140,7 @@
                          <h4>Express Entry For Professionals</h4>
                          <p>By utilizing your abilities, skills, and education, you can obtain your Permanent Residency sooner. Contact us for a risk free consultation.</p>
                          </div>
-                         <a href="{{ URL('/Services-express_entry') }}">Read More</a>
+                         <a href="{{ url('/Services-express_entry') .'?'. http_build_query(['language' => $language]) }}">Read More</a>
                      </div>
                   </div>
                   <div class="col-lg-3 col-md-12 col-sm-12">
@@ -130,7 +152,7 @@
                                  Looking to move your business to Canada? We can help you navigate through all the procedures and help you with the right business acumen.
                              </p>
                          </div>
-                         <a href="{{ URL('/Services-PNP') }}">Read More</a>
+                         <a href="{{ url('/Services-PNP') .'?'. http_build_query(['language' => $language]) }}">Read More</a>
                      </div>
                   </div>
                </div>
@@ -148,7 +170,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-1"></div>
-                            <a href="{!!url('/Services-workpermit'.'#pgwpp')!!}">
+                            <a href="{{ url('/Services-workpermit') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>Master's Degree Program</h5>
                                 <p>Study, get a master's degree</p>
@@ -159,7 +181,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-2"></div>
-                            <a href="{!!url('/Services-prcard')!!}">
+                            <a href="{{ url('/Services-prcard') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>Permanent Residence</h5>
                                 <p>To apply, renew, replace, or update, we can help you</p>
@@ -169,7 +191,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-3"></div>
-                            <a href="{!!url('/Services-workpermit')!!}">
+                            <a href="{{ url('/Services-workpermit') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>Work Permit</h5>
                                 <p>Tell us your expertise and work experience, we will help you find the most suitable option</p>
@@ -182,7 +204,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-4"></div>
-                            <a href="{!!url('/Services-caregiver')!!}">
+                            <a href="{{ url('/Services-caregiver') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>Caregiver</h5>
                                 <p>If you like to take care of people, this program is for you and obtain permanent residency
@@ -194,7 +216,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-5"></div>
-                            <a href="{!!url('/Services-LMIA')!!}">
+                            <a href="{{ url('/Services-LMIA') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>LMIA Immigration</h5>
                                 <p>Employers in need of a temporary foreign worker will need a positive LMIA</p>
@@ -205,7 +227,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="item-section-4 d-flex">
                             <div class="programe programe-6"></div>
-                            <a href="{!!url('/Services-citizenship')!!}">
+                            <a href="{{ url('/Services-citizenship') .'?'. http_build_query(['language' => $language]) }}">
                             <div class="item-text">
                                 <h5>Citizenship Application</h5>
                                 <p>Find out if you or your family members qualify for Canadian Citizenship and how to obtain it</p>
@@ -233,34 +255,35 @@
                         <div class="line-2-white"></div>
                          <p>Fill out our Assessment Form and we’ll review your eligibility for the immigration programs.</p>
                         <div class="form">
-                           {!! Form::open(['url' => '/contact_mail','method'=>"POST"]) !!}
+                           <form action="{{ url('/contact_mail') }}" method="POST">
+                              
                               <div class="row">
                                  <div class="col-md-6">
-                                    {!! Form::text('fname', null, array('placeholder'=>'First Name')) !!}
+                                    <input type="text" name="fname" placeholder="First Name" value="{{ old('fname') }}">
                                     @error('fname')
                                     <div class="alert alert-danger">{{ $errors->first('fname')}}</div>
                                     @enderror
                                  </div>
                                   <div class="col-md-6">
-                                      {!! Form::text('lname', null, array('placeholder'=>'Last Name')) !!}
+                                      <input type="text" name="lname" placeholder="Last Name" value="{{ old('lname') }}">
                                   </div>
                               </div>
                                <div class="row mt-20">
 
                                  <div class="col-md-4">
-                                    {!! Form::text('email', null, array('placeholder'=>'Email')) !!}
+                                    <input type="text" name="email" placeholder="Email" value="{{ old('email') }}">
                                     @error('email')
                                     <div class="alert alert-danger">{{ $errors->first('email')}}</div>
                                     @enderror
                                  </div>
                                  <div class="col-md-4">
-                                    {!! Form::text('number', null, array('placeholder'=>'Telephone')) !!}
+                                    <input type="text" name="number" placeholder="Telephone" value="{{ old('number') }}">
                                     @error('number')
                                     <div class="alert alert-danger">{{ $errors->first('number')}}</div>
                                     @enderror
                                  </div>
                                   <div class="col-md-4">
-                                   {!! Form::text('country', null, array('placeholder'=>'Country of Residence')) !!}
+                                   <input type="text" name="country" placeholder="Country of Residence" value="{{ old('country') }}">
                                     @error('country')
                                     <div class="alert alert-danger">{{ $errors->first('country')}}</div>
                                     @enderror
@@ -271,15 +294,15 @@
                                      How did you find us?
                                  </div>
                                  <div class="col-md-6">
-                                     {!! Form::radio('referer', 'By Referer',false, ['onchange' => 'yourFunction()']); !!}By referrer
+                                     <input type="radio" name="referer" value="By Referer" onchange="yourFunction()">&nbsp;By referrer
                                      <div id="referer_name" style="display: none;">
-                                     {!! Form::text('referer_name', null, array('placeholder'=>'Referrer Name')) !!}
+                                     <input type="text" name="referer_name" placeholder="Referrer Name" value="{{ old('referer_name') }}">
                                      </div>
                                  </div>
                                  <div class="col-md-6">
-                                     {!! Form::radio('referer', 'Other', false, ['onchange' => 'yourFunction()']); !!} Other
+                                     <input type="radio" name="referer" value="Other" onchange="yourFunction()"> Other
                                      <div id="other" style="display: none;">
-                                     {!! Form::text('other', null, array('placeholder'=>'Fill in Here')) !!}
+                                     <input type="text" name="other" placeholder="Fill in Here" value="{{ old('other') }}">
                                      </div>
 
                                  </div>
@@ -292,16 +315,16 @@
 
                             <div class="row mt-20">
                                  <div class="col-md-12">
-                                    {!! Form::textarea('message', null, array('placeholder'=>'How can we help you? Be as descriptive as possible.','rows' => 5, 'cols' => 80)) !!}
+                                    <textarea name="message" placeholder="How can we help you? Be as descriptive as possible." rows="5" cols="80">{{ old('message') }}</textarea>
                                     <br/>
-                                    {!! Form::submit('Submit') !!}
+                                    <input type="submit" value="Submit">
                                  </div>
                               </div>
-                              {!! Form::close() !!}                           
+                              </form>                           
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </section>
-@endsection         
+@endsection
